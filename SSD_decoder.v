@@ -49,6 +49,46 @@ module SSD_decoder(
                 8 : h1 = digits[8];
                 9 : h1 = digits[9];
             endcase
+            case (mins-(mins%10))//minutes digit 0
+                10      : m0 = digits[1];
+                20      : m0 = digits[2];
+                30      : m0 = digits[3];
+                40      : m0 = digits[4];
+                50      : m0 = digits[5];
+                default : m0 = digits[0];
+            endcase
+            case (mins%10)//minutes digit 1
+                0 : m1 = digits[0];
+                1 : m1 = digits[1];
+                2 : m1 = digits[2];
+                3 : m1 = digits[3];
+                4 : m1 = digits[4];
+                5 : m1 = digits[5];
+                6 : m1 = digits[6];
+                7 : m1 = digits[7];
+                8 : m1 = digits[8];
+                9 : m1 = digits[9];
+            endcase
+            case (secs-(secs%10))//seconds digit 0
+                10      : s0 = digits[1];
+                20      : s0 = digits[2];
+                30      : s0 = digits[3];
+                40      : s0 = digits[4];
+                50      : s0 = digits[5];
+                default : s0 = digits[0];
+            endcase
+            case (secs%10)//seconds digit 1
+                0 : s1 = digits[0];
+                1 : s1 = digits[1];
+                2 : s1 = digits[2];
+                3 : s1 = digits[3];
+                4 : s1 = digits[4];
+                5 : s1 = digits[5];
+                6 : s1 = digits[6];
+                7 : s1 = digits[7];
+                8 : s1 = digits[8];
+                9 : s1 = digits[9];
+            endcase
         end
     end
 
