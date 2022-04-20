@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../EC311-final-project-main/SSD_decoder.v" \
+"../../../../final_project_clock.srcs/sim_1/new/SSD_testbench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

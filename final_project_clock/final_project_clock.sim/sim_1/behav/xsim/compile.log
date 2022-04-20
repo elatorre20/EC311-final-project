@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "X:/EC311-final-project-main/SSD_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "X:/final_project_clock/final_project_clock.srcs/sim_1/new/SSD_testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD_testbench
