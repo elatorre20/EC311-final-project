@@ -19,17 +19,35 @@ endmodule
 
 
 
+module CntDwn(input clock_out, input[4:0]seconds, output[4:0]countdown);
+    input pause, start, restart;
+    reg[4:0]dif=0;//Difference
 
-module remaining_seconds(clock_out, sec_in, sec_out);
-    input clock_out;
-    input [5:0] sec_in;
-    output [5:0] sec_out;
-    wire [5:0] remaining_sec;
+    case (pause_start)
+        (pause == 1): state = 1;
+        (start == 1): state = 2;
+        (restart == 1): state = 3;
+        default: state = 1;
+    endcase
 
-    assign remaining_sec = sec_in;
+    always@(posedge clock_out)
+    if (state == 1)
+        assign countdown = countdown;
 
-    always @ (posedge clock_out)
-        remaining_sec <= remaining_sec - 1;
-        sec_out <= remaining_sec;
+    else if (state == 2)
+    begin
+        if(dif==seconds)
+            dif<=0;
+        else
+            dif<=dif+1;
+        assign countdown=cd-dif;
+    end
+
+    else if (state == 3)
+        assign countdown = seconds;
 endmodule
 
+
+
+// the 'reset' button should start the system from the initial state
+// I guess the inputs should be initialized too
