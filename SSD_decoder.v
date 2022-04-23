@@ -2,7 +2,6 @@ module SSD_decoder(
     input [5:0] secs,
     input clk, rst,
     output [6:0]sec0, sec1, //connected to the SSD decoders
-    output pmlight
 );
     
 
