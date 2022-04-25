@@ -1,15 +1,16 @@
-module CntDwn(input clock, input[5:0]seconds, output[5:0]countdown);
-    input pause, start, restart;
-    reg[5:0]dif=0;//Difference
+module CntDwn(input clock_out, input[4:0]seconds, output[4:0]countdown);
+    input pause, start, restart, reset;
+    reg[4:0]dif=0;//Difference
 
     case (pause_start)
         (pause == 1): state = 1;
         (start == 1): state = 2;
         (restart == 1): state = 3;
+        (reset == 1): state = 4;
         default: state = 1;
     endcase
 
-    always@(posedge clock)
+    always@(posedge clock_out)
     if (state == 1)
         assign countdown = countdown;
 
@@ -24,6 +25,9 @@ module CntDwn(input clock, input[5:0]seconds, output[5:0]countdown);
 
     else if (state == 3)
         assign countdown = seconds;
+
+    else if (state == 4)
+        assign countdown = 0;
 endmodule
 
 
